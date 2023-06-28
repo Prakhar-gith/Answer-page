@@ -1,60 +1,85 @@
-import { useState, useEffect } from "react";
 import "./App.css";
 
 function App() {
-  const initialValues = {password: "" };
-  const [formValues, setFormValues] = useState(initialValues);
-  const [formErrors, setFormErrors] = useState({});
-  const [isSubmit, setIsSubmit] = useState(false);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormValues({ ...formValues, [name]: value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setFormErrors(validate(formValues));
-    setIsSubmit(true);
-  };
-
-  useEffect(() => {
-    console.log(formErrors);
-    if (Object.keys(formErrors).length === 0 && isSubmit) {
-      console.log(formValues);
-    }
-  }, [formErrors]);
-  const validate = (values) => {
-    const errors = {};
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-    if (!values.password) {
-      errors.password = "Password is required";
-    } else if (values.password.length < 4) {
-      errors.password = "Password must be more than 4 characters";
-    } else if (values.password.length > 10) {
-      errors.password = "Password cannot exceed more than 10 characters";
-    }
-    return errors;
-  };
 
   return (
     <div className="container">
 
-      <form onSubmit={handleSubmit}>
+      <form>
         <h1>Hello PlayerNAME</h1>
+        <h3>Please Enter all the answers here:</h3>
         <div className="ui divider"></div>
         <div className="ui form">
           <div className="field">
-            <label>Password: </label>
+            <label>Answer 1: </label>
             <input
-              type="password"
+              type="text"
               name="password"
-              placeholder="Please Enter The Password"
-              value={formValues.password}
-              onChange={handleChange}
+              placeholder="Please Enter The Answer"
+              
             />
           </div>
-          <p>{formErrors.password}</p>
+         
+          <div className="field">
+            <label>Answer 2: </label>
+            <input
+              type="text"
+              name="password"
+              placeholder="Please Enter The Answer"
+              
+            />
+          </div>
+         
+          <div className="field">
+            <label>Answer 3: </label>
+            <input
+              type="text"
+              name="password"
+              placeholder="Please Enter The Answer"
+              
+            />
+          </div>
+          
+          <div className="field">
+            <label>Answer 4: </label>
+            <input
+              type="text"
+              name="password"
+              placeholder="Please Enter The Answer"
+              
+            />
+          </div>
+          
+          <div className="field">
+            <label>Answer 5: </label>
+            <input
+              type="text"
+              name="password"
+              placeholder="Please Enter The Answer"
+              
+            />
+          </div>
+          
+          <div className="field">
+            <label>Answer 6: </label>
+            <input
+              type="text"
+              name="password"
+              placeholder="Please Enter The Answer"
+              
+            />
+          </div>
+          
+          <div className="field">
+            <label>Answer 7: </label>
+            <input
+              type="text"
+              name="password"
+              placeholder="Please Enter The Answer"
+              
+            />
+          </div>
+          
           <button className="fluid ui button blue">Submit</button>
         </div>
       </form>
